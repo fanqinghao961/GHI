@@ -28,7 +28,7 @@ with col6:
 if st.button("获取理论发电量"):
     with st.spinner("正在获取气象辐射数据..."):
         try:
-            url = "https://api.open-meteo.com/v1/forecast"
+            url = "https://archive-api.open-meteo.com/v1/archive"
             params = {
                 "latitude": lat,
                 "longitude": lon,
@@ -63,4 +63,5 @@ if st.button("计算弃光率"):
     else:
         theo = st.session_state["total_theo"]
         curtail_rate = (theo - actual) / theo * 100
+
         st.metric("弃光率", f"{curtail_rate:.2f} %")
